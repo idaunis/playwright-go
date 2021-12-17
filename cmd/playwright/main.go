@@ -5,7 +5,7 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/mxschmitt/playwright-go"
+	"github.com/idaunis/playwright-go"
 )
 
 func main() {

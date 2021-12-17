@@ -1,3 +1,4 @@
+//go:build !windows
 // +build !windows
 
 package playwright_test
@@ -11,7 +12,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/mxschmitt/playwright-go"
+	"github.com/idaunis/playwright-go"
 )
 
 type remoteServer struct {

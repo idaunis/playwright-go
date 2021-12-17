@@ -14,21 +14,23 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/mxschmitt/playwright-go"
+	"github.com/idaunis/playwright-go"
 	"github.com/stretchr/testify/require"
 )
 
-var pw *playwright.Playwright
-var browser playwright.Browser
-var context playwright.BrowserContext
-var page playwright.Page
-var isChromium bool
-var isFirefox bool
-var isWebKit bool
-var browserName = getBrowserName()
-var server *testServer
-var browserType playwright.BrowserType
-var utils *testUtils
+var (
+	pw          *playwright.Playwright
+	browser     playwright.Browser
+	context     playwright.BrowserContext
+	page        playwright.Page
+	isChromium  bool
+	isFirefox   bool
+	isWebKit    bool
+	browserName = getBrowserName()
+	server      *testServer
+	browserType playwright.BrowserType
+	utils       *testUtils
+)
 
 func init() {
 	if err := mime.AddExtensionType(".js", "application/javascript"); err != nil {
@@ -230,8 +232,7 @@ func newSyncSlice() *syncSlice {
 	}
 }
 
-type testUtils struct {
-}
+type testUtils struct{}
 
 func (t *testUtils) AttachFrame(page playwright.Page, frameId string, url string) (playwright.Frame, error) {
 	_, err := page.EvaluateHandle(`async ({ frame_id, url }) => {

@@ -3,7 +3,7 @@ package playwright_test
 import (
 	"testing"
 
-	"github.com/mxschmitt/playwright-go"
+	"github.com/idaunis/playwright-go"
 	"github.com/stretchr/testify/require"
 )
 

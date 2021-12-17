@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/mxschmitt/playwright-go"
+	"github.com/idaunis/playwright-go"
 	"github.com/stretchr/testify/require"
 )
 
@@ -59,15 +59,16 @@ func TestBrowserContextStorageStateSetLocalStorage(t *testing.T) {
 	context, err := browser.NewContext(
 		playwright.BrowserNewContextOptions{
 			StorageState: &playwright.BrowserNewContextOptionsStorageState{
-				Origins: []playwright.BrowserNewContextOptionsStorageStateOrigins{{
-					Origin: playwright.String("https://www.example.com"),
-					LocalStorage: []playwright.BrowserNewContextOptionsStorageStateOriginsLocalStorage{
-						{
-							Name:  playwright.String("name1"),
-							Value: playwright.String("value1"),
+				Origins: []playwright.BrowserNewContextOptionsStorageStateOrigins{
+					{
+						Origin: playwright.String("https://www.example.com"),
+						LocalStorage: []playwright.BrowserNewContextOptionsStorageStateOriginsLocalStorage{
+							{
+								Name:  playwright.String("name1"),
+								Value: playwright.String("value1"),
+							},
 						},
 					},
-				},
 				},
 			},
 		},
@@ -78,7 +79,6 @@ func TestBrowserContextStorageStateSetLocalStorage(t *testing.T) {
 	require.NoError(t, err)
 	defer page.Close()
 	require.NoError(t, page.Route("**/*", func(route playwright.Route, request playwright.Request) {
-
 		require.NoError(t, route.Fulfill(playwright.RouteFulfillOptions{
 			Body: "<html></html>",
 		}))

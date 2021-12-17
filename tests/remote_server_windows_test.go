@@ -1,3 +1,4 @@
+//go:build windows
 // +build windows
 
 package playwright_test
@@ -10,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/mxschmitt/playwright-go"
+	"github.com/idaunis/playwright-go"
 )
 
 type remoteServer struct {

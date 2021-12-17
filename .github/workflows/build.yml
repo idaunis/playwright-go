@@ -36,12 +36,12 @@ jobs:
       env:
         BROWSER: ${{ matrix.browser }}
       if: matrix.os == 'ubuntu-latest'
-      run: xvfb-run go test -v -covermode atomic -coverprofile=covprofile -coverpkg="github.com/mxschmitt/playwright-go" --race ./...
+      run: xvfb-run go test -v -covermode atomic -coverprofile=covprofile -coverpkg="github.com/idaunis/playwright-go" --race ./...
     - name: Test
       env:
         BROWSER: ${{ matrix.browser }}
       if: matrix.os != 'ubuntu-latest'
-      run: go test -v -covermode atomic -coverprofile=covprofile -coverpkg="github.com/mxschmitt/playwright-go" --race ./...
+      run: go test -v -covermode atomic -coverprofile=covprofile -coverpkg="github.com/idaunis/playwright-go" --race ./...
     - name: Install goveralls
       env:
         GO111MODULE: off

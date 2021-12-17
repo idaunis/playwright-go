@@ -1,3 +1,4 @@
+//go:build ignore
 // +build ignore
 
 package main
@@ -6,7 +7,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/mxschmitt/playwright-go"
+	"github.com/idaunis/playwright-go"
 )
 
 func main() {
@@ -44,5 +45,4 @@ func main() {
 	if err := pw.Stop(); err != nil {
 		log.Fatalf("could not stop Playwright: %v\n", err)
 	}
-
 }

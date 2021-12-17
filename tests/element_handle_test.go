@@ -3,7 +3,7 @@ package playwright_test
 import (
 	"testing"
 
-	"github.com/mxschmitt/playwright-go"
+	"github.com/idaunis/playwright-go"
 	"github.com/stretchr/testify/require"
 )
 
@@ -37,6 +37,7 @@ func TestElementHandleOwnerFrame(t *testing.T) {
 	require.Equal(t, ownerFrame, frame)
 	require.Equal(t, "iframe1", ownerFrame.Name())
 }
+
 func TestElementHandleContentFrame(t *testing.T) {
 	BeforeEach(t)
 	defer AfterEach(t)
@@ -50,6 +51,7 @@ func TestElementHandleContentFrame(t *testing.T) {
 	require.NoError(t, err)
 	require.Equal(t, frame, page.Frames()[1])
 }
+
 func TestElementHandleGetAttribute(t *testing.T) {
 	BeforeEach(t)
 	defer AfterEach(t)
